@@ -79,8 +79,8 @@
                 
                 <% user_bookmarks_for_dish = current_user.bookmarks.where(dish_id: dish.id) %>
                 
-                <% if user_bookmarks_for_dish.first.present? %>
-                  <% bookmark_id = user_bookmarks_for_dish.first.id %>
+                <% if user_bookmarks_for_dish.last.present? %>
+                  <% bookmark_id = user_bookmarks_for_dish.last.id %>
                   <% venue_id = Bookmark.find(bookmark_id).venue.id %>
                   <a href="venues/<%= venue_id%>"> <%= Venue.find(venue_id).name %> </a> 
                   

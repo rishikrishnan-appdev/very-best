@@ -48,7 +48,7 @@
         
         
         <% if user_bookmarks_for_dish.first.present? %>
-          <% user_bookmarks_for_dish.all.each do |bookmark| %>
+          <% user_bookmarks_for_dish.all.reverse.each do |bookmark| %>
             
             <li class="list-group-item">
               <p>
