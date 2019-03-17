@@ -97,14 +97,18 @@
             
             <% @dishes.each do |dish| %>
             
+            
             <tr>
               <td>
                 <a href="/dishes/<%= dish.id %>"><%= dish.name %></a>
               </td>
               
               <td>
-                <% if dish.bookmarks.first.present? %>
-                  <% bookmark_id = dish.bookmarks.first.id %>
+                
+                <% user_bookmarks_for_dish = current_user.bookmarks.where(dish_id: dish.id) %>
+                
+                <% if user_bookmarks_for_dish.first.present? %>
+                  <% bookmark_id = user_bookmarks_for_dish.first.id %>
                   <% venue_id = Bookmark.find(bookmark_id).venue.id %>
                   <a href="venues/<%= venue_id%>"> <%= Venue.find(venue_id).name %> </a> 
                   
@@ -127,7 +131,7 @@
                         Venue
                       </label>
               
-                      <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name), :class => "form-control form-control-sm mr-sm-1") %>
+                      <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name), :prompt => "Choose a venue...", :class => "form-control form-control-sm mr-sm-1") %>
                     </div>
 
                     <button class="btn btn-primary btn-sm">
