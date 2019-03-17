@@ -111,11 +111,15 @@
                 <% else %>
                   <form action="/create_bookmark" class = "form-inline" method="post">
                     <!-- Label and input for dish_id -->
-                    <input type = "hidden" name = "dish_id" value = <% dish.id %>>
+                    <input type = "hidden" name = "dish_id" value = "<%= dish.id %>" >
                   
                     
                     <!-- Label and input for user_id -->
                     <input type="hidden" name="user_id" value="<%= current_user.id %>">
+                    
+                    <!-- Label and input for notes -->
+                    
+                    <input type = "hidden" name = "notes" value = " " >
                     
                     <!-- Label and input for venue_id -->
                     <div class="form-group">
