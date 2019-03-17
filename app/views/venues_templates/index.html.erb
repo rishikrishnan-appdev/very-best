@@ -89,7 +89,7 @@
         </div>
         
         <ul class = "list-group list-group-flush">
-          <% @bookmarked_venues.each do |venue| %>
+          <% @venues.sort_by(&:name).each do |venue| %>
             <li class = "list-group-item">
               <a href="venues/<%= venue.id %>"> 
                 <%= venue.name %>
