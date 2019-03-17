@@ -67,7 +67,7 @@
               </th>
             </tr>
             
-            <% @dishes.each do |dish| %>
+            <% @dishes.sort_by(&:name).each do |dish| %>
             
             
             <tr>
