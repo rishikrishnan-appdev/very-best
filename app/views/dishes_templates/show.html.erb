@@ -33,7 +33,7 @@
                         Venue
                       </label>
               
-                      <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name, "test"), :class => "form-control", :prompt => "Choose a venue...") %>
+                      <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name), :class => "form-control", :prompt => "Choose a venue...") %>
                     </div>
 
                     <button class="btn btn-primary btn">
