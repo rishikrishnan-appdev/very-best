@@ -41,7 +41,7 @@
         <li class= "list-group-item list-group-item-success">
           Popular dishes here
         </li>
-        <% Bookmark.where(venue_id: @venue.id).each do |bookmark| %>
+        <% Bookmark.where(venue_id: @venue.id).select('DISTINCT dish_id').each do |bookmark| %>
         <li class= "list-group-item">
           <p>
             <a href="/dishes/<%= bookmark.dish_id %>">
